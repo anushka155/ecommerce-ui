@@ -18,11 +18,17 @@ from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('myapp.urls')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # using serve() explicitly with path()
+
+urlpatterns += [
+    path('static/',serve,{'document_root': settings.STATIC_ROOT},),
+    path('media/',serve,{'document_root': settings.MEDIA_ROOT},),
+]
