@@ -49,8 +49,8 @@ def order(req, slug):
     )
     payment = EsewaPayment(
         product_code="EPAYTEST",
-        success_url=f"http://localhost:8000/success/{order.uid}",
-        failure_url=f"http://localhost:8000/failure/{order.uid}",
+        success_url=f"https://Anuska.pythonanywhere.com/success/{order.uid}",
+        failure_url=f"https://Anuska.pythonanywhere.com/failure/{order.uid}",
         amount=order.price,
         tax_amount=order.tax,
         total_amount=order.total,
@@ -74,8 +74,8 @@ def success(req, uid):
     order = Order.objects.get(uid=uid)
     payment = EsewaPayment(
         product_code="EPAYTEST",
-        success_url=f"http://localhost:8000/success/{order.uid}",
-        failure_url=f"http://localhost:8000/failure/{order.uid}",
+        success_url=f"https://Anuska.pythonanywhere.com/success/{order.uid}",
+        failure_url=f"https://Anuska.pythonanywhere.com/failure/{order.uid}",
         amount=order.price,
         tax_amount=order.tax,
         total_amount=order.total,
