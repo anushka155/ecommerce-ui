@@ -128,4 +128,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
+# Add this to allow your PythonAnywhere site to submit forms
+CSRF_TRUSTED_ORIGINS = [
+    'https://Anuska.pythonanywhere.com',
+]
+
 #tinymceconfig
